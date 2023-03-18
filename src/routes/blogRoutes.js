@@ -2,10 +2,6 @@ const express = require('express');
 const router = express.Router();
 const BlogController = require('../controllers/blogController');
 
-router.get('/create', BlogController.blog_create_get);
-
-router.get('/:id/edit', BlogController.blog_edit_get);
-
 // Get all request
 router.get('/', BlogController.blog_index);
 

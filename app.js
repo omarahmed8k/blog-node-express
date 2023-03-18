@@ -13,12 +13,8 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => app.listen(port))
     .catch((err) => console.log(err));
 
-app.set('view engine', 'ejs');
-app.set('views', 'src/views');
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'));
 
 app.use(morgan('dev'));
 
@@ -26,4 +22,4 @@ app.use(pagesRoutes);
 app.use('/blogs', blogRoutes);
 
 
-app.use((req, res) => res.status(404).render('404', { title: '404' }));
+app.use((req, res) => res.status(404).send('Not Found'));
