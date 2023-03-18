@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../components/head.ejs") %>
+
+<body>
+
+  <%- include("../components/header.ejs") %>
+
+
+  <form class="form" action="/blogs" method="POST">
+
+    <h2>
+      Add a new blog
+    </h2>
+
+    <input type="text" name="title" placeholder="Title">
+
+    <input type="text" name="subject" placeholder="Subject">
+
+    <textarea rows="5" type="text" name="body" placeholder="Body"></textarea>
+
+    <button type="submit">Add</button>
+
+  </form>
+
+
+  <%- include("../components/footer.ejs") %>
+
+</body>
+
+</html>

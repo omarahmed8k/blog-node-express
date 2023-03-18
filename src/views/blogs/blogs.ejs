@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../components/head.ejs") %>
+
+<body>
+
+  <%- include("../components/header.ejs") %>
+
+  <div class="page">
+
+    <% if (blogs?.length > 0) { %>
+
+    <% blogs?.forEach((post) => { %>
+    <div class="post">
+
+      <h2>
+        <%= post.title %>
+      </h2>
+
+      <p>
+        <%= post.subject %>
+      </p>
+
+      <a class="view-btn" href="/blogs/<%= post._id %>">
+        View
+      </a>
+
+      <a class="edit-btn" href="/blogs/<%= post._id %>/edit">
+        Edit
+      </a>
+
+      <a class="delete-btn" data-id="<%= post._id %>">
+        Delete
+      </a>
+
+    </div>
+
+    <% }) %>
+
+    <% } else { %>
+
+    <p class="no-data">
+      No posts yet
+    </p>
+
+    <% } %>
+
+  </div>
+
+  <%- include("../components/footer.ejs") %>
+
+  <script>
+    const deleteBtn = document.querySelector('.delete-btn');
+    const id = deleteBtn.getAttribute('data-id');
+    deleteBtn.addEventListener('click', () => {
+      fetch(`/blogs/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          window.location.href = '/blogs';
+        })
+    });
+  </script>
+
+</body>
+
+</html>
