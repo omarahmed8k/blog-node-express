@@ -105,6 +105,24 @@ a {
     overflow: hidden;
 }
 
+@media screen and (max-width: 1200px) {
+    .post {
+        width: calc(100% / 3 - 20px);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .post {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .post {
+        width: 100%
+    }
+}
+
 .post .view-btn,
 .post .edit-btn,
 .post .delete-btn {
