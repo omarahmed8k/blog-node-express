@@ -1,7 +1,7 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors')
 const morgan = require('morgan');
+require('dotenv').config();
 const blogRoutes = require('./src/routes/blogRoutes');
 const pagesRoutes = require('./src/routes/pagesRoutes');
 
