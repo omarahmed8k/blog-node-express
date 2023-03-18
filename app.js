@@ -6,7 +6,7 @@ const pagesRoutes = require('./src/routes/pagesRoutes');
 const app = express();
 const port = 3000;
 
-const uri = "mongodb+srv://omarahmed8k:Meca2020@blog.gm29vgh.mongodb.net/blogs?retryWrites=true&w=majority";
+const uri = process.env.mongoDB;
 
 const mongoose = require('mongoose');
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
